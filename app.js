@@ -8,6 +8,9 @@ var options = {
   path: '/sms/Students/StudentMain.aspx'
 };
 
+var firstname = "სახელი";
+var lastname = "გვარი";
+var password= "პაროლი";
 
 var req = http.get(options, function(res) {
   // console.log('STATUS: ' + res.statusCode);
@@ -33,9 +36,9 @@ var req = http.get(options, function(res) {
 			  '__VIEWSTATE': viewstate,
 			  '__VIEWSTATEGENERATOR' : viewstategen,
 			  '__EVENTVALIDATION': eventval,
-			  'ctl00$ContentPlaceHolder1$NameText': 'სახელი',
-			  'ctl00$ContentPlaceHolder1$FumilyText':'გვარი',
-			  'ctl00$ContentPlaceHolder1$PasswordText':'პაროლი',
+			  'ctl00$ContentPlaceHolder1$NameText': firstname,
+			  'ctl00$ContentPlaceHolder1$FumilyText':lastname,
+			  'ctl00$ContentPlaceHolder1$PasswordText':password,
 			  'ctl00$ContentPlaceHolder1$LogIn':'შესვლა'
 			});
     		var options2 = {
