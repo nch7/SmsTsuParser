@@ -105,12 +105,19 @@ var req = http.get(options, function(res) {
                         var $ = cheerio.load(body);
                         var json = [];
                         for(var i = 1; i<=$('#ctl00_C1_GridView1').children('tr').length-1; i++){
+
+                            var finals = $('#ctl00_C1_GridView1').children('tr').eq(i).children('td').eq(9).html();
+                            var jQ = cheerio.load(finals);
+
+                            var final1 = jQ('span').eq(0).text().length?parseInt(jQ('span').eq(0).text()) : 0;
+                            var final2 = jQ('span').eq(1).text().length?parseInt(jQ('span').eq(1).text()) : 0;
                             var grades = [
                                     parseInt($('#ctl00_C1_GridView1').children('tr').eq(i).children('td').eq(4).text())?parseInt($('#ctl00_C1_GridView1').children('tr').eq(i).children('td').eq(4).text()):0,
                                     parseInt($('#ctl00_C1_GridView1').children('tr').eq(i).children('td').eq(5).text())?parseInt($('#ctl00_C1_GridView1').children('tr').eq(i).children('td').eq(5).text()):0,
                                     parseInt($('#ctl00_C1_GridView1').children('tr').eq(i).children('td').eq(6).text())?parseInt($('#ctl00_C1_GridView1').children('tr').eq(i).children('td').eq(6).text()):0,
                                     parseInt($('#ctl00_C1_GridView1').children('tr').eq(i).children('td').eq(7).text())?parseInt($('#ctl00_C1_GridView1').children('tr').eq(i).children('td').eq(7).text()):0,
-                                    parseInt($('#ctl00_C1_GridView1').children('tr').eq(i).children('td').eq(8).text())?parseInt($('#ctl00_C1_GridView1').children('tr').eq(i).children('td').eq(8).text()):0
+                                    parseInt($('#ctl00_C1_GridView1').children('tr').eq(i).children('td').eq(8).text())?parseInt($('#ctl00_C1_GridView1').children('tr').eq(i).children('td').eq(8).text()):0,
+                                    final1+final2
                                 ];
                             function add(a,b){
                                 return a+b;
