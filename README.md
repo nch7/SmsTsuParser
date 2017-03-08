@@ -7,10 +7,11 @@ app.js ფაილში ჩაწერეთ თქვენი მონა�
   var lastname = "გვარი";
   var password= "პაროლი";
 ```
-#გამოყენებული მოდულები.
-async, cheerio.
 
 პროგრამის გაშვების შემდეგ ქულები JSON ის ფორმატში ინახება grades.json ფაილში.
+
+#გამოყენებული მოდულები.
+async, cheerio.
 
 #Example JSON
 ```json
